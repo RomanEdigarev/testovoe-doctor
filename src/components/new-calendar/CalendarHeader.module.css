@@ -1,0 +1,12 @@
+
+.calendarHeader {
+    width: 573px;
+    height: 57px;
+    background: #7761FF;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
