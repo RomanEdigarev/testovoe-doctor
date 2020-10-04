@@ -1,0 +1,11 @@
+.monthTitleContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.monthTitle {
+    font-family: 'Rubik', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+}
