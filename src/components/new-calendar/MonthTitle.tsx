@@ -1,14 +1,17 @@
 import React, {FC} from "react";
 import style from './MonthTitle.module.css'
+import prev from './img/back.svg'
+import next from './img/next.svg'
+import NextBtn from "./NextBtn";
 
 
 const MonthTitle: FC = () => {
 
     return (
         <div className={style.monthTitleContainer}>
-            <img src={"/common/img/back%20(3)%203.svg"} alt="prev"/>
+            <img className={style.nextBtn} src={prev} alt="prev"/>
             <div className={style.monthTitle}>Июнь, 2020</div>
-            <img src='/common/img/next.png' alt="prev"/>
+            <NextBtn/>
         </div>
     )
 }
