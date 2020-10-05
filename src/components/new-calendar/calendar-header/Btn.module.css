@@ -1,21 +1,22 @@
-.nextBtn {
-    stroke: #ffffff;
+.btn {
+    /*stroke: #ffffff;*/
     transition: all 0.2s ease-in-out;
 }
 
-.nextBtn path {
+.btn path {
     stroke: white;
 }
 
-.nextBtn:hover {
+.btn:hover {
     transform: scale(1.25);
 }
 
-.nextBtn:hover path {
+.btn:hover path {
     stroke: black;
+    fill: black;
 
 }
 
-.nextBtn rect {
+.btn rect {
     transform: translate(14 14) rotate(-180deg);
 }
