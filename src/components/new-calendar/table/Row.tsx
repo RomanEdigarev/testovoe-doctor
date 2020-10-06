@@ -1,16 +1,27 @@
 import React, {FC} from "react";
 import style from './Row.module.css'
+import {addDays, format, startOfWeek} from "date-fns";
+import {ru} from "date-fns/locale";
 
-const Row : FC = () => {
+type PropsType = {
+    currentMonth: Date
+}
+const Row: FC<PropsType> = ({currentMonth}) => {
+
+    const dateFormat = 'cccccc'
+    const days = []
+
+    let startDate = startOfWeek(currentMonth)
+
+    for (let i = 0; i < 7; i++) {
+        days.push(
+            <div key={i} className={style.row__cell}>{format(addDays(startDate, i + 1), dateFormat, {locale: ru})}</div>
+        )
+    }
+
     return (
         <div className={style.row}>
-            <div className={style.row__cell}>Пн</div>
-            <div className={style.row__cell}>Вт</div>
-            <div className={style.row__cell}>Ср</div>
-            <div className={style.row__cell}>Чт</div>
-            <div className={style.row__cell}>Пт</div>
-            <div className={style.row__cell}>Сб</div>
-            <div className={style.row__cell}>Вс</div>
+            {days}
         </div>
     )
 }

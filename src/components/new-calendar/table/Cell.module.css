@@ -14,6 +14,10 @@
     height: 63px;
 }
 
+.cell__sameDay {
+    background: #777777;
+}
+
 .cell__sticker {
     background: #50CAFF;
     width: 22px;

@@ -1,9 +1,13 @@
 import React, {FC} from "react";
 import style from './Btn.module.css'
 
-const BackBtn : FC = () => {
+
+type PropsType = {
+    goToPrevMonth : () => void
+}
+const BackBtn : FC<PropsType> = ({goToPrevMonth}) => {
     return (
-        <div className={style.btn}>
+        <div className={style.btn} onClick={()=>goToPrevMonth()}>
             <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <clipPath id="clip0">

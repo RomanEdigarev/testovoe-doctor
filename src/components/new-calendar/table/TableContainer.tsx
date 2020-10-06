@@ -2,11 +2,15 @@ import React, {FC} from "react";
 import Row from "./Row";
 import Cell from "./Cell";
 
-const TableContainer : FC = () => {
+type PropsType = {
+    currentMonth : Date
+}
+
+const TableContainer : FC<PropsType> = ({currentMonth}) => {
     return (
         <>
-            <Row/>
-            <Cell/>
+            <Row currentMonth={currentMonth}/>
+            <Cell currentMonth={currentMonth}/>
         </>
     )
 }

@@ -12,4 +12,5 @@
     margin: 0;
     width: 79px;
     height: 37px;
+    text-transform: capitalize;
 }

@@ -1,9 +1,13 @@
 import React, {FC} from "react";
 import style from './Btn.module.css'
 
-const NextBtn: FC = () => {
+type PropsType = {
+    goToNextMonth : () => void
+}
+
+const NextBtn: FC<PropsType> = ({goToNextMonth}) => {
     return (
-        <div className={style.btn}>
+        <div className={style.btn} onClick={goToNextMonth}>
             <svg width="14" height="14" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <clipPath id="clip0">
