@@ -1,7 +1,8 @@
 import React, {FC} from "react";
-import CalendarHeader from "./CalendarHeader";
-import MonthTitle from "./MonthTitle";
 import style from './NewCalendarContainer.module.css'
+import CalendarHeader from "./calendar-header/CalendarHeader";
+import MonthTitle from "./calendar-header/MonthTitle";
+import TableContainer from "./table/TableContainer";
 
 const NewCalendarContainer : FC = () => {
 
@@ -10,6 +11,7 @@ const NewCalendarContainer : FC = () => {
              <CalendarHeader>
                  <MonthTitle/>
              </CalendarHeader>
+            <TableContainer/>
         </div>
     )
 }
