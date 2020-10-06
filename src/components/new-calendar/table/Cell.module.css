@@ -14,8 +14,9 @@
     height: 63px;
 }
 
-.cell__sameDay {
-    background: #777777;
+.cell__noMonthDay {
+    color: rgba(0, 0, 0, 0.25);
+    background: transparent;
 }
 
 .cell__sticker {

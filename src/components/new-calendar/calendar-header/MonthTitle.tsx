@@ -6,18 +6,14 @@ import {addMonths, format, subMonths} from 'date-fns';
 import {ru} from "date-fns/locale";
 
 type PropsType = {
-    goToPrevMonth : () => void
-    goToNextMonth : () => void
-    currentMonth : Date
+    goToPrevMonth: () => void
+    goToNextMonth: () => void
+    currentMonth: Date
 }
 
 const MonthTitle: FC<PropsType> = ({goToNextMonth, goToPrevMonth, currentMonth}) => {
 
-
-
     const dateFormat = 'LLLL yyyy'
-
-
 
     return (
         <div className={style.monthTitleContainer}>

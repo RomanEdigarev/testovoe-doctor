@@ -5,7 +5,7 @@
 }
 
 .monthTitle {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-family: 'Rubik', sans-serif;
     font-size: 14px;
     color: #ffffff;

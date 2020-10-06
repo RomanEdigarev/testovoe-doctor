@@ -1,40 +1,15 @@
 import React, {FC, Props} from "react";
 import style from './Cell.module.css'
 import {addDays, endOfMonth, endOfWeek, format, startOfMonth, startOfWeek, isSameDay} from "date-fns";
+import {DayType} from "./TableContainer";
 
 type PropsType = {
-    currentMonth: Date
+    daysWithAppointments : DayType[]
+    currentDate : Date
+    monthEnd : Date
 }
-type DayType = {
-    dayDate: Date
-    isAppointment: boolean
-}
-const Cell: FC<PropsType> = ({currentMonth}) => {
 
-    const Appointments = [{dayDate: new Date(), isAppointment: true}]
-
-    const monthStart = startOfMonth(currentMonth)
-    const monthEnd = endOfMonth(monthStart)
-    const startDate = startOfWeek(monthStart)
-    const endDate = endOfWeek(monthEnd)
-    const currentDate = new Date();
-
-    const days: DayType[] = [];
-    let day = startDate;
-
-    for (day; day <= endDate; day = addDays(day, 1)) {
-        days.push({dayDate: day, isAppointment: false})
-    }
-    const daysWithAppointments: DayType[] = days.map(dayOfMonth => {
-        let returnedDay : DayType= {...dayOfMonth}
-        Appointments.forEach(dayWithAppointments => {
-                if (isSameDay(dayOfMonth.dayDate, dayWithAppointments.dayDate)) {
-                    returnedDay = {...dayWithAppointments}
-                }
-            }
-        )
-        return returnedDay
-    })
+const Cell: FC<PropsType> = ({daysWithAppointments, currentDate, monthEnd }) => {
 
     return (
         <div className={style.cell__container}>
@@ -53,7 +28,7 @@ const Cell: FC<PropsType> = ({currentMonth}) => {
                         )
                     } else {
                         return (
-                            <div key={day.dayDate.toDateString()} className={`${style.cell} ${style.cell__sameDay}`}>
+                            <div key={day.dayDate.toDateString()} className={`${style.cell} ${style.cell__noMonthDay}`}>
                                 {format(day.dayDate, 'd')}
                                 {
                                     day.isAppointment ?
