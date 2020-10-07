@@ -1,4 +1,5 @@
 .navbar__container {
+  position: relative;
   font-size: 14px;
   color: #ffffff;
   display: flex;
@@ -10,9 +11,17 @@
   min-height: 768px;
   background-color: #003B72;
 
+  a {
+    color: inherit;
+    text-decoration: dashed;
+  }
+
   .navbar__link {
+    display: flex;
+    justify-content: start;
+    align-items: center;
     width: 100%;
-    padding: 15px 0;
+    padding: 15px 20px;
     border-left: 1px solid transparent;
     background-color: transparent;
     transition: all 0.2s ease-in-out;
@@ -20,6 +29,11 @@
     &:hover {
       color: #7761FF;
       background-color: #ffffff;
+      border-left: 4px solid #7761FF;
+    }
+
+    &:hover path {
+      fill: #7761FF;
     }
 
   }
@@ -36,11 +50,6 @@
       background-color: #ffffff;
     }
 
-    a {
-      color: inherit;
-      text-decoration: dashed;
-    }
-
   }
 
   .navbar__logo {
@@ -48,4 +57,16 @@
     padding: 20px;
     text-align: start;
   }
+
+  .navbar__footer {
+    width: 100%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: absolute;
+    bottom: 55px;
+    text-align: center;
+  }
+
 }
