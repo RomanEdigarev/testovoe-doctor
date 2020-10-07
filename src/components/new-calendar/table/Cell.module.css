@@ -1,0 +1,42 @@
+.cell__container {
+    margin: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    position: relative;
+    background: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px;
+    width: 79px;
+    height: 63px;
+}
+
+.cell__noMonthDay {
+    color: rgba(0, 0, 0, 0.25);
+    background: transparent;
+}
+
+.cell__sticker {
+    background: #50CAFF;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    overflow:hidden;
+    position:absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.cell__sticker div {
+    margin: auto;
+    color: #ffffff;
+    font-size: 14px;
+    transform:translate(-50%,-50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+}
