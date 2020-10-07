@@ -5,7 +5,7 @@ type InitialStateType = {
 }
 
 const initialState : InitialStateType = {
-    appointments : []
+    appointments : [{dayDate: new Date(), isAppointment: true}]
 }
 
 type ActionsType<T> = T extends {[key:string] : (...args : any) => infer U } ? U : never

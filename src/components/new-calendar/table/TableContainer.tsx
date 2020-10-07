@@ -5,15 +5,14 @@ import {addDays, endOfMonth, endOfWeek, isSameDay, startOfMonth, startOfWeek} fr
 
 type PropsType = {
     currentMonth : Date
+    appointments : DayType[]
 }
 export type DayType = {
     dayDate: Date
     isAppointment: boolean
 }
 
-const TableContainer : FC<PropsType> = ({currentMonth}) => {
-
-    const Appointments = [{dayDate: new Date(), isAppointment: true}]
+const TableContainer : FC<PropsType> = ({currentMonth, appointments}) => {
 
     const monthStart = startOfMonth(currentMonth)
     const monthEnd = endOfMonth(monthStart)
@@ -30,7 +29,7 @@ const TableContainer : FC<PropsType> = ({currentMonth}) => {
 
     const daysWithAppointments: DayType[] = days.map(dayOfMonth => {
         let returnedDay : DayType= {...dayOfMonth}
-        Appointments.forEach(dayWithAppointments => {
+        appointments.forEach(dayWithAppointments => {
                 if (isSameDay(dayOfMonth.dayDate, dayWithAppointments.dayDate)) {
                     returnedDay = {...dayWithAppointments}
                 }
@@ -38,7 +37,6 @@ const TableContainer : FC<PropsType> = ({currentMonth}) => {
         )
         return returnedDay
     })
-
 
     return (
         <>

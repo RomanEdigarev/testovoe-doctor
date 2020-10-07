@@ -5,7 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from "react-redux";
 
 
-function App(props: any) {
+function App() {
 
   return (
       <Router>
