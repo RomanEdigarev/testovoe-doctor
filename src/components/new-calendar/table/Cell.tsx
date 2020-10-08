@@ -1,7 +1,7 @@
-import React, {FC, Props} from "react";
+import React, {FC} from "react";
 import style from './Cell.module.css'
-import {addDays, endOfMonth, endOfWeek, format, startOfMonth, startOfWeek, isSameDay} from "date-fns";
-import {DayType} from "./TableContainer";
+import {format, isSameDay} from "date-fns";
+import {DayType} from "../../../redux/reducers/types";
 
 type PropsType = {
     daysWithAppointments : DayType[]

@@ -2,15 +2,13 @@ import React, {FC} from "react";
 import Row from "./Row";
 import Cell from "./Cell";
 import {addDays, endOfMonth, endOfWeek, isSameDay, startOfMonth, startOfWeek} from "date-fns";
+import {DayType} from "../../../redux/reducers/types";
 
 type PropsType = {
     currentMonth : Date
     appointments : DayType[]
 }
-export type DayType = {
-    dayDate: Date
-    isAppointment: boolean
-}
+
 
 const TableContainer : FC<PropsType> = ({currentMonth, appointments}) => {
 

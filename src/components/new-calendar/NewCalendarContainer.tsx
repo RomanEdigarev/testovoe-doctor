@@ -2,10 +2,11 @@ import React, {FC, useState} from "react";
 import style from './NewCalendarContainer.module.css'
 import CalendarHeader from "./calendar-header/CalendarHeader";
 import MonthTitle from "./calendar-header/MonthTitle";
-import TableContainer, {DayType} from "./table/TableContainer";
+import TableContainer from "./table/TableContainer";
 import {addMonths, subMonths} from "date-fns";
 import {connect} from "react-redux";
 import {AppState} from "../../redux/reduxStore";
+import {DayType} from "../../redux/reducers/types";
 
 const NewCalendar : FC<MapStateToPropsType> = ({appointments}) => {
 

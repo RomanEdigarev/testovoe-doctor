@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {FC} from 'react';
 import './App.css';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {connect} from "react-redux";
-import Header from "./components/header/Header";
-import Navbar from "./components/navbar/Navbar";
 import AppointmentCards from "./components/appointment-cards/AppointmentCards";
+import {getAppointmentsInfo} from "./redux/reducers/appointmentReducer";
+import {DayType} from "./redux/reducers/types";
+import {AppState} from "./redux/reduxStore";
 
 
-function App() {
+const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, appointments}) => {
 
     return (
         <Router>
@@ -15,12 +16,23 @@ function App() {
                 {/*<NewCalendarContainer/>*/}
                 {/*<Navbar/>*/}
                 {/*<Header/>*/}
-                <AppointmentCards/>
+                <AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments}/>
             </div>
         </Router>
     );
 }
+type MapStateToProps = {
+    appointments : DayType[]
+}
 
-const AppContainer = connect(null, null)(App)
+type MapDispatchToProps = {
+    getAppointmentInfo : () => void
+}
+
+const mapStateToProps = (state : AppState) : MapStateToProps => {
+    return {appointments : state.appointmentReducer.appointments}
+}
+
+const AppContainer = connect<MapStateToProps, MapDispatchToProps, unknown, AppState>(mapStateToProps, {getAppointmentInfo : getAppointmentsInfo})(App)
 
 export default AppContainer;
