@@ -13,9 +13,9 @@ function App() {
         <Router>
             <div className="app">
                 {/*<NewCalendarContainer/>*/}
-                <Navbar/>
-                <Header/>
-                {/*<AppointmentCards/>*/}
+                {/*<Navbar/>*/}
+                {/*<Header/>*/}
+                <AppointmentCards/>
             </div>
         </Router>
     );
