@@ -14,23 +14,23 @@ const Navbar: FC = () => {
             <div className={style.navbar__logo}>Логотип</div>
             <div className={style.navbar__link}>
                 <HeartIcon/>
-                Профиль
+                <Link to={'/profile'}>Профиль</Link>
             </div>
             <div className={style.navbar__link}>
                 <Vector/>
-                Врачи и клиники
+                <Link to={'#'}>Врачи и клиники</Link>
             </div>
             <div className={style.navbar__link}>
                 <SpeakIcon/>
-                Сообщения
+                <Link to={'#'}>Сообщения</Link>
             </div>
             <div className={style.navbar__link}>
                 <TestIcon/>
-                Тестирование
+                <Link to={'#'}>Тестирование</Link>
             </div>
             <div className={style.navbar__link}>
                 <BookIcon/>
-                Полезно знать
+                <Link to={'#'}>Полезно знать</Link>
             </div>
             <div className={style.navbar__btn}>
                 <Link to={'/zayavka'}>

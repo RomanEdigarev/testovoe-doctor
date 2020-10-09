@@ -14,17 +14,16 @@ const ElectronCard: FC<ElectronsCardsData> = ({title, subtitle, icon}) => {
                     <span>{title}</span>
                 </div>
                 <div className={style.electronCard__subtitle}>
+                    <ul>
                     {
                         typeof subtitle === "string" ? subtitle :
                             subtitle.map(string => {
                                 return (
-                                    <ul>
                                         <li key={string}>{string}</li>
-                                    </ul>
                                 )
                             })
-
                     }
+                    </ul>
                 </div>
             </div>
         </div>
