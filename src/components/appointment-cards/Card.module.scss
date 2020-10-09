@@ -1,0 +1,65 @@
+.card__container {
+  margin: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.25);
+  position: relative;
+  width: 475px;
+  height: 174px;
+  background-color: #ffffff;
+  padding: 20px;
+
+  .card__title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  .card__description {
+    margin-bottom: 10px;
+  }
+
+  .card__doctorProfile {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 100px;
+
+    img {
+      margin-right: 10px;
+      border-radius: 100px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .doctorProfile__information {
+
+      .doctorProfile__name {
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .doctorProfile__position {
+        font-weight: 300;
+        color: #EBE7FF;
+      }
+    }
+  }
+
+  .card__button {
+    color: #ffffff;
+    background-color: #7761FF;
+    padding: 12px 15px;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 5px;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+}

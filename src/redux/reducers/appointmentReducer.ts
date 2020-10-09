@@ -1,24 +1,43 @@
-import {DayType} from "../../components/new-calendar/table/TableContainer";
+import {DayType} from "./types";
+import {ThunkType} from "../reduxStore";
+import {getAppointmentInfo} from "../../api/api";
 
 type InitialStateType = {
-    appointments : DayType[]
+    appointments: DayType[]
+    isLoad: boolean
 }
 
-const initialState : InitialStateType = {
-    appointments : [{dayDate: new Date(), isAppointment: true}]
+const initialState: InitialStateType = {
+    appointments: [],
+    isLoad: false
 }
 
-type ActionsType<T> = T extends {[key:string] : (...args : any) => infer U } ? U : never
+type ActionsType<T> = T extends { [key: string]: (...arg: any[]) => infer U } ? U : never
 const actionCreators = {
-    addNewDayWithAppointments : (day : DayType) => {return {type: "ADD_NEW_DAY_WITH_APPOINTMENTS", day : {...day}}}
+    setAppointments: (appointmentsInfo: DayType[]) => {
+        return {type: 'SET_APPOINTMENTS_INFO', appointmentsInfo} as const
+    },
+    // addNewDayWithAppointments : (day : DayType) => {return {type: "ADD_NEW_DAY_WITH_APPOINTMENTS", day : {...day}} as const},
 }
 
-export const appointmentReducer = (state : InitialStateType = initialState, action : ActionsType<typeof actionCreators>) : InitialStateType => {
+export const appointmentReducer = (state: InitialStateType = initialState, action: ActionsType<typeof actionCreators>): InitialStateType => {
     switch (action.type) {
-        case "ADD_NEW_DAY_WITH_APPOINTMENTS": {
-            return {...state, appointments : [...state.appointments, action.day]}
+        // case "ADD_NEW_DAY_WITH_APPOINTMENTS": {
+        //     return {...state, appointments : [...state.appointments, action.day]}
+        // }
+        case "SET_APPOINTMENTS_INFO": {
+            return {...state, appointments: [...state.appointments, ...action.appointmentsInfo], isLoad : true}
         }
-        default : return state
+        default :
+            return state
     }
 }
+
+export const getAppointmentsInfo = () : ThunkType<ActionsType<typeof actionCreators>> => {
+    return async (dispatch) => {
+        const response = await getAppointmentInfo()
+        dispatch(actionCreators.setAppointments(response))
+    }
+}
+
 

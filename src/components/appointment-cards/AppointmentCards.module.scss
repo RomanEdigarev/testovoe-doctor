@@ -1,0 +1,16 @@
+.appointmentCard {
+  max-height: 635px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    background-color: #ebe7ff;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #003B72;
+  }
+
+}
+
