@@ -6,6 +6,7 @@ import AppointmentCards from "./components/appointment-cards/AppointmentCards";
 import {getAppointmentsInfo} from "./redux/reducers/appointmentReducer";
 import {DayType} from "./redux/reducers/types";
 import {AppState} from "./redux/reduxStore";
+import ElectronCardContainer from "./components/electron-card/ElectronCardsContainer";
 
 
 const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, appointments, isLoad}) => {
@@ -16,7 +17,8 @@ const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, app
                 {/*<NewCalendarContainer/>*/}
                 {/*<Navbar/>*/}
                 {/*<Header/>*/}
-                <AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments} isLoad={isLoad}/>
+                {/*<AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments} isLoad={isLoad}/>*/}
+                <ElectronCardContainer/>
             </div>
         </Router>
     );
