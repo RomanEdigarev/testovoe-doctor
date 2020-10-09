@@ -4,7 +4,7 @@ import {getAppointmentInfo} from "../../api/api";
 
 type InitialStateType = {
     appointments: DayType[]
-    isLoad: false
+    isLoad: boolean
 }
 
 const initialState: InitialStateType = {
@@ -26,7 +26,7 @@ export const appointmentReducer = (state: InitialStateType = initialState, actio
         //     return {...state, appointments : [...state.appointments, action.day]}
         // }
         case "SET_APPOINTMENTS_INFO": {
-            return {...state, appointments: [...state.appointments, ...action.appointmentsInfo]}
+            return {...state, appointments: [...state.appointments, ...action.appointmentsInfo], isLoad : true}
         }
         default :
             return state

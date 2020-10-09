@@ -4,14 +4,14 @@ export type DayType = {
     appointmentsInfo? : AppointmentInfo
 }
 
-type AppointmentInfo = {
+export type AppointmentInfo = {
     date : string
     time : string
     address : string
     doctorInfo : {
         name : string
         position : string
-        avatar : string | null
+        avatar : string | undefined
     }
 }
 

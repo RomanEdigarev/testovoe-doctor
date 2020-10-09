@@ -8,7 +8,7 @@ const obj : DayType = {
         address : 'СПБ ГБУЗ "Городская поликлиника №25, пр. Солидарности", д. 1, к. 1, лит. А',
         date : "Понедельник 15.06.20",
         doctorInfo : {
-            avatar : '',
+            avatar : 'https://www.flaticon.com/svg/static/icons/svg/1869/1869354.svg',
             name : 'Малушко Т. Н.',
             position : 'Хирургия'
         }

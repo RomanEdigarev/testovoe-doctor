@@ -2,24 +2,26 @@ import React, {FC} from "react";
 import style from './Card.module.scss'
 import avatar from '../header/img/avatar.jpg'
 import {Link} from "react-router-dom";
+import {AppointmentInfo} from "../../redux/reducers/types";
 
-const Card: FC = () => {
+
+const Card: FC<AppointmentInfo> = ({date, address,doctorInfo,time}) => {
     return (
         <div className={style.card__container}>
             <div className={style.card__title}>
-                Понедельник 15.06.20 | 15:30
+                {`${date} | ${time}`}
             </div>
             <div className={style.card__description}>
-                СПБ ГБУЗ "Городская поликлиника №25", пр. Солидарности, д. 1, к. 1, лит. А
+                {`${address}`}
             </div>
             <div className={style.card__doctorProfile}>
-                <img src={avatar} alt=""/>
+                <img src={doctorInfo.avatar} alt=""/>
                 <div className={style.doctorProfile__information}>
                     <div className={style.doctorProfile__name}>
-                        Малушко Т. Н.
+                        {`${doctorInfo.name}`}
                     </div>
                     <div className={style.doctorProfile__position}>
-                        Хирургия
+                        {`${doctorInfo.position}`}
                     </div>
                 </div>
             </div>

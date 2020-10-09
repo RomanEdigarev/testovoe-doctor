@@ -1,27 +1,31 @@
-import React, {FC, useEffect} from "react";
+import React, {FC, ReactElement, useEffect} from "react";
 import Card from "./Card";
 import style from './AppointmentCards.module.scss'
-import {DayType} from "../../redux/reducers/types";
+import {AppointmentInfo, DayType} from "../../redux/reducers/types";
 
+type PropsType = {
+    getAppointment : () => void,
+    appointments : DayType[],
+    isLoad : boolean
+}
+const AppointmentCards : FC<PropsType> = ({getAppointment,appointments, isLoad }) => {
 
-const AppointmentCards : FC<{getAppointment : () => void, appointments : DayType[]}> = ({getAppointment,appointments }) => {
-    debugger
     useEffect(() => {
         getAppointment()
     }, [])
 
-    console.log(appointments)
+    if(!isLoad) {
+        return <div>Loading</div>
+    }
 
     return (
         <div className={style.appointmentCard}>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
-            <Card/>
+            {appointments.map((day : DayType) : ReactElement<AppointmentInfo>=> {
+                const {date, time,address,doctorInfo} = day.appointmentsInfo!
+                return (
+                    <Card date={date} time={time} address={address} doctorInfo={doctorInfo} key={time}/>
+                )
+            })}
         </div>
     )
 }

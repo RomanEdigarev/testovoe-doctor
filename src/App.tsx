@@ -8,7 +8,7 @@ import {DayType} from "./redux/reducers/types";
 import {AppState} from "./redux/reduxStore";
 
 
-const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, appointments}) => {
+const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, appointments, isLoad}) => {
 
     return (
         <Router>
@@ -16,13 +16,14 @@ const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, app
                 {/*<NewCalendarContainer/>*/}
                 {/*<Navbar/>*/}
                 {/*<Header/>*/}
-                <AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments}/>
+                <AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments} isLoad={isLoad}/>
             </div>
         </Router>
     );
 }
 type MapStateToProps = {
-    appointments : DayType[]
+    appointments : DayType[],
+    isLoad : boolean
 }
 
 type MapDispatchToProps = {
@@ -30,7 +31,7 @@ type MapDispatchToProps = {
 }
 
 const mapStateToProps = (state : AppState) : MapStateToProps => {
-    return {appointments : state.appointmentReducer.appointments}
+    return {appointments : state.appointmentReducer.appointments, isLoad : state.appointmentReducer.isLoad}
 }
 
 const AppContainer = connect<MapStateToProps, MapDispatchToProps, unknown, AppState>(mapStateToProps, {getAppointmentInfo : getAppointmentsInfo})(App)
