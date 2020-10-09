@@ -11,7 +11,7 @@ const App : FC = (props) => {
         <Router>
             <div className="app">
                 <Navbar/>
-                <Route path={'/profile'}><ContentContainer/></Route>
+                <ContentContainer/>
                 {/*<NewCalendarContainer/>*/}
                 {/*<AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments} isLoad={isLoad}/>*/}
                 {/*<ElectronCardContainer/>*/}

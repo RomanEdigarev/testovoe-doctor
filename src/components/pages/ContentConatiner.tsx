@@ -5,13 +5,16 @@ import {AppState} from "../../redux/reduxStore";
 import {connect} from "react-redux";
 import {getAppointmentsInfo} from "../../redux/reducers/appointmentReducer";
 import CabinetPage from "./cabinet/CabinetPage";
+import {Route} from "react-router-dom";
+import Appointments from "./appointments/Appointments";
 
 const Content : FC<MapStateToProps & MapDispatchToProps> = (props) => {
 
     return (
         <div style={{width: '100%'}}>
             <Header/>
-            <CabinetPage {...props}/>
+            <Route path={'/profile'}><CabinetPage {...props}/></Route>
+            <Route path={'/appointments'}><Appointments {...props}/></Route>
         </div>
     )
 }

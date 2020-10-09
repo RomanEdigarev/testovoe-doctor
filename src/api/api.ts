@@ -34,6 +34,9 @@ class Server {
     constructor(obj : DayType) {
         this.obj.push(obj)
         this.obj.push(obj2)
+        this.obj.push(obj2)
+        this.obj.push(obj2)
+        this.obj.push(obj2)
     }
 
      getObj() : Promise<DayType[]> {

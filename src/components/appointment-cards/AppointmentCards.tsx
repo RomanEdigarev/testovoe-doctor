@@ -38,8 +38,8 @@ const AppointmentCards: FC<PropsType> = ({getAppointment, appointments, isLoad, 
             {
                 isRow ?
                     <div className={style.more}>
-                        Еще три записи
-                        <Link to={'/'}>Подробнее</Link>
+                        Еще {`${appointments.length - 2}`} записи
+                        <Link to={'/appointments'}>Подробнее</Link>
                     </div> :
                     null
             }
