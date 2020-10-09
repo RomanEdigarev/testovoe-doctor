@@ -1,21 +1,31 @@
 import React, {FC} from "react";
 import style from './ElectronCard.module.scss'
-import LabIcon from "./icons/LabIcon";
+import {ElectronsCardsData} from "./ElectronsCardsData";
 
-const ElectronCard : FC = () => {
+
+const ElectronCard: FC<ElectronsCardsData> = ({title, subtitle, icon}) => {
     return (
         <div className={style.electronCard__container}>
             <div className={style.electronCard__icon}>
-                <LabIcon/>
+                {icon}
             </div>
             <div className={style.electronCard__description}>
                 <div className={style.electronCard__title}>
-                    <span>Результаты анализов</span>
+                    <span>{title}</span>
                 </div>
                 <div className={style.electronCard__subtitle}>
-                    Вы можете узнать здесь результаты своих анализов
-                </div>
+                    {
+                        typeof subtitle === "string" ? subtitle :
+                            subtitle.map(string => {
+                                return (
+                                    <ul>
+                                        <li key={string}>{string}</li>
+                                    </ul>
+                                )
+                            })
 
+                    }
+                </div>
             </div>
         </div>
     )

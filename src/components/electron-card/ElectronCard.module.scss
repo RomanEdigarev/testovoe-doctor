@@ -17,6 +17,10 @@
     border-bottom: 2px solid #EBE7FF;
   }
 
+  li::marker {
+    color: #50CAFF;
+  }
+
   &:hover {
     background-color: #50CAFF;
 
@@ -55,6 +59,12 @@
 
     .electronCard__subtitle {
       font-size: 16px;
+
+      ul {
+        margin: 0;
+        list-style-position: outside;
+        padding-left: 15px;
+      }
     }
   }
 }
