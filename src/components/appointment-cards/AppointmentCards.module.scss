@@ -1,6 +1,16 @@
 .appointmentCard {
+  display: flex;
   max-height: 635px;
   overflow: auto;
+  margin-bottom: 35px;
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.row {
+    flex-direction: row;
+  }
 
   &::-webkit-scrollbar {
     background-color: #ebe7ff;
@@ -10,6 +20,20 @@
   &::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-color: #003B72;
+  }
+
+  .more {
+    width: 90px;
+    margin: 15px 10px 5px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    a {
+      color: #50CAFF;
+    }
   }
 
 }

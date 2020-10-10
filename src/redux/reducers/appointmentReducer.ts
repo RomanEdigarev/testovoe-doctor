@@ -26,7 +26,7 @@ export const appointmentReducer = (state: InitialStateType = initialState, actio
         //     return {...state, appointments : [...state.appointments, action.day]}
         // }
         case "SET_APPOINTMENTS_INFO": {
-            return {...state, appointments: [...state.appointments, ...action.appointmentsInfo], isLoad : true}
+            return {...state, appointments: [...action.appointmentsInfo], isLoad : true}
         }
         default :
             return state

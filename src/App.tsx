@@ -1,41 +1,24 @@
 import React, {FC} from 'react';
 import './App.css';
-import {BrowserRouter as Router} from 'react-router-dom'
-import {connect} from "react-redux";
-import AppointmentCards from "./components/appointment-cards/AppointmentCards";
-import {getAppointmentsInfo} from "./redux/reducers/appointmentReducer";
-import {DayType} from "./redux/reducers/types";
-import {AppState} from "./redux/reduxStore";
-import ElectronCardContainer from "./components/electron-card/ElectronCardsContainer";
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import Navbar from "./components/navbar/Navbar";
+import ContentContainer from "./components/pages/ContentConatiner";
 
 
-const App : FC<MapDispatchToProps & MapStateToProps> = ({getAppointmentInfo, appointments, isLoad}) => {
+const App : FC = (props) => {
 
     return (
         <Router>
             <div className="app">
+                <Navbar/>
+                <ContentContainer/>
                 {/*<NewCalendarContainer/>*/}
-                {/*<Navbar/>*/}
-                {/*<Header/>*/}
                 {/*<AppointmentCards getAppointment={getAppointmentInfo} appointments={appointments} isLoad={isLoad}/>*/}
-                <ElectronCardContainer/>
+                {/*<ElectronCardContainer/>*/}
             </div>
         </Router>
     );
 }
-type MapStateToProps = {
-    appointments : DayType[],
-    isLoad : boolean
-}
 
-type MapDispatchToProps = {
-    getAppointmentInfo : () => void
-}
 
-const mapStateToProps = (state : AppState) : MapStateToProps => {
-    return {appointments : state.appointmentReducer.appointments, isLoad : state.appointmentReducer.isLoad}
-}
-
-const AppContainer = connect<MapStateToProps, MapDispatchToProps, unknown, AppState>(mapStateToProps, {getAppointmentInfo : getAppointmentsInfo})(App)
-
-export default AppContainer;
+export default App;
